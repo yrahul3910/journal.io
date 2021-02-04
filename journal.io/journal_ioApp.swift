@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct journal_ioApp: App {
+struct journal_ioApp: App {    
     var body: some Scene {
         DocumentGroup(newDocument: journal_ioDocument()) { file in
             ContentView(document: file.$document)
