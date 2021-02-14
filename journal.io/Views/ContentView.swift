@@ -31,11 +31,6 @@ struct ContentView: View {
         )
     }
     
-    // Add an attachment to the current entry
-    func addAttachment() {
-        
-    }
-    
     var body: some View {
         HStack {
             VStack {
@@ -58,18 +53,18 @@ struct ContentView: View {
                     .padding()
                 }
                 HStack {
-                    ForEach(document.attachments, id: \.self, content: { data in
-                        Button(action: {  self.removeAttachment(data: data) }) {
-                            Image(nsImage: NSImage(data: data)!)
-                                .frame(width: 100, height: 100, alignment: .center)
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                    })
-                    Button(action: self.addAttachment) {
-                        Image(systemName: "plus")
-                            .frame(width: 100, height: 100, alignment: .center)
+                    List {
+                        ForEach(document.attachments, id: \.self, content: { data in
+                            Button(action: {  self.removeAttachment(data: data) }) {
+                                Image(nsImage: NSImage(data: data)!)
+                                    .resizable()
+                                    .frame(width: 100, height: 100, alignment: .center)
+                                    .aspectRatio(1, contentMode: .fill)
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            
+                        })
                     }
-                    .buttonStyle(BorderlessButtonStyle())
                     Spacer()
                 }.padding()
                 TextEditor(text: $document.currentText)
