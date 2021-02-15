@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		059E68C125D8D40600CA6072 /* DropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E68C025D8D40600CA6072 /* DropDelegate.swift */; };
+		059E68C625D9FACE00CA6072 /* Translucency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E68C525D9FACE00CA6072 /* Translucency.swift */; };
 		05CA4D4825C9597C00D76FE4 /* journal_ioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CA4D4725C9597C00D76FE4 /* journal_ioApp.swift */; };
 		05CA4D4A25C9597C00D76FE4 /* journal_ioDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CA4D4925C9597C00D76FE4 /* journal_ioDocument.swift */; };
 		05CA4D4C25C9597C00D76FE4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CA4D4B25C9597C00D76FE4 /* ContentView.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		059E68C025D8D40600CA6072 /* DropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDelegate.swift; sourceTree = "<group>"; };
+		059E68C525D9FACE00CA6072 /* Translucency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translucency.swift; sourceTree = "<group>"; };
 		05CA4D4425C9597C00D76FE4 /* journal.io.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = journal.io.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05CA4D4725C9597C00D76FE4 /* journal_ioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = journal_ioApp.swift; sourceTree = "<group>"; };
 		05CA4D4925C9597C00D76FE4 /* journal_ioDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = journal_ioDocument.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				05CA4D7825C95EBA00D76FE4 /* Journal.swift */,
 				05CA4D8325CBF71C00D76FE4 /* AppState.swift */,
 				059E68C025D8D40600CA6072 /* DropDelegate.swift */,
+				059E68C525D9FACE00CA6072 /* Translucency.swift */,
 			);
 			path = journal.io;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				05CA4D4A25C9597C00D76FE4 /* journal_ioDocument.swift in Sources */,
 				059E68C125D8D40600CA6072 /* DropDelegate.swift in Sources */,
 				05CA4D8425CBF71C00D76FE4 /* AppState.swift in Sources */,
+				059E68C625D9FACE00CA6072 /* Translucency.swift in Sources */,
 				05CA4D4825C9597C00D76FE4 /* journal_ioApp.swift in Sources */,
 				05CA4D4C25C9597C00D76FE4 /* ContentView.swift in Sources */,
 				05CA4D7925C95EBA00D76FE4 /* Journal.swift in Sources */,

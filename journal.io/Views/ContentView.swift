@@ -11,6 +11,8 @@ import Foundation
 struct ContentView: View {
     @Binding var document: journal_ioDocument
     
+    @State var showHover: [Bool] = []
+        
     // Move to an editing state for a new entry
     func createNewEntry() {
         // If we're editing, do nothing
@@ -24,22 +26,19 @@ struct ContentView: View {
     }
     
     // Remove the clicked attachment
-    // TODO: Implement an overlay on hovering
-    func removeAttachment(data: Data) {
-        document.attachments.remove(at:
-            document.attachments.firstIndex(of: data)!
-        )
+    func removeAttachment(index: Int) {
+        document.attachments.remove(at: index)
     }
     
     var body: some View {
-        HStack {
+        return HStack {
             VStack {
                 Text("Your Entries")
                     .font(.title)
                     .bold()
                     .padding()
                 Spacer()
-            }
+            }.translucent()
             VStack {
                 HStack {
                     Text(globalState.currentlyOpenEntry)
@@ -54,17 +53,28 @@ struct ContentView: View {
                 }
                 HStack {
                     List {
-                        ForEach(document.attachments, id: \.self, content: { data in
-                            Button(action: {  self.removeAttachment(data: data) }) {
-                                Image(nsImage: NSImage(data: data)!)
+                        ForEach(document.attachments.indices, id: \.self, content: { index in
+                            Button(action: {  self.removeAttachment(index: index) }) {
+                                Image(nsImage: NSImage(data: document.attachments[index])!)
                                     .resizable()
                                     .frame(width: 100, height: 100, alignment: .center)
                                     .aspectRatio(1, contentMode: .fill)
                             }
+                            .overlay(Color.init(.sRGB, red: 1, green: 0, blue: 0, opacity: 0.4)
+                                        .translucent()
+                                        .overlay(
+                                            Image(systemName: "minus.circle.fill")
+                                                .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        )
+                                        .isHidden(!self.showHover[index], remove: !self.showHover[index]))
                             .buttonStyle(PlainButtonStyle())
+                            .onHover(perform: { hovering in
+                                self.showHover[index] = hovering
+                            })
                             
                         })
                     }
+                    .onDrop(of: [.image], delegate: ImageDropDelegate(images: $document.attachments, indices: $showHover))
                     Spacer()
                 }.padding()
                 TextEditor(text: $document.currentText)

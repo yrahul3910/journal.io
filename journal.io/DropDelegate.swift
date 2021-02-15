@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ImageDropDelegate: DropDelegate {
     @Binding var images: [Data]
+    @Binding var indices: [Bool]
 
     func performDrop(info: DropInfo) -> Bool {
         guard info.hasItemsConforming(to: [.image, .png, .jpeg]) else {
@@ -22,6 +23,7 @@ struct ImageDropDelegate: DropDelegate {
                 if let img = img {
                     DispatchQueue.main.async {
                         self.images.append(img)
+                        self.indices.append(false)
                     }
                 }
             })
