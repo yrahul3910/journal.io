@@ -38,7 +38,8 @@ struct ContentView: View {
                     .bold()
                     .padding()
                 Spacer()
-            }.translucent()
+            }.padding()
+            .translucent()
             VStack {
                 HStack {
                     Text(globalState.currentlyOpenEntry)
